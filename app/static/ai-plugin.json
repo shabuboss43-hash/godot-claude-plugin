@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Godot Game Builder",
+  "name_for_model": "godot_game_builder",
+  "description_for_human": "Create and validate 2D/3D Godot projects for Claude-assisted game generation.",
+  "description_for_model": "Use this tool to create Godot projects, add scenes, write scripts, and validate builds for 2D and 3D game prototypes.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://YOUR-APP.example.com/openapi.yaml"
+  },
+  "logo_url": "https://YOUR-APP.example.com/logo.png",
+  "contact_email": "hello@example.com",
+  "legal_info_url": "https://YOUR-APP.example.com/legal"
+}

@@ -1,0 +1,85 @@
+openapi: 3.0.0
+info:
+  title: Godot Claude Plugin API
+  version: 1.0.0
+paths:
+  /api/v1/projects:
+    post:
+      summary: Create a Godot project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name]
+              properties:
+                name:
+                  type: string
+                genre:
+                  type: string
+                  enum: [2d_platformer, 3d_roller, top_down_shooter, rpg, sandbox]
+                template:
+                  type: string
+                  enum: [2d, 3d, empty]
+      responses:
+        "200":
+          description: project created
+
+  /api/v1/projects/scene:
+    post:
+      summary: Add a scene to a project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [project_id, name]
+              properties:
+                project_id:
+                  type: string
+                name:
+                  type: string
+                scene_type:
+                  type: string
+                  enum: [2d, 3d, ui]
+
+  /api/v1/projects/script:
+    post:
+      summary: Add a script file to a project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [project_id, path, content]
+              properties:
+                project_id:
+                  type: string
+                path:
+                  type: string
+                language:
+                  type: string
+                  enum: [gdscript, csharp]
+                content:
+                  type: string
+
+  /api/v1/projects/build:
+    post:
+      summary: Validate a Godot project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [project_id]
+              properties:
+                project_id:
+                  type: string
+                export_target:
+                  type: string
+                debug:
+                  type: boolean
