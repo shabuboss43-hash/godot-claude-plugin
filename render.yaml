@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: godot-claude-plugin
+    env: docker
+    region: oregon
+    branch: main
+    plan: starter
+    buildCommand: ""
+    startCommand: ""
+    autoDeploy: true
+    envVars:
+      - key: PROJECTS_DIR
+        value: /workspace/projects
+      - key: PORT
+        value: "8000"
+    persistentDisk:
+      sizeGB: 5
+      mountPath: /workspace/projects
+    healthCheckPath: /health
